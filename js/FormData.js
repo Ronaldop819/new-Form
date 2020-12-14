@@ -36,3 +36,25 @@ function validateEmail (email) {
 
     return '';
 } 
+
+function handleSignupFormSubmit (e) {
+    e.preventDefault();
+
+    const formDataEntries = new FormData(signupForm).entries();
+    const {email, password} = Object.fromEntries(formDataEntries);
+
+    const emailErrorMessage = validateEmail(email);
+    const passwordErrorMessage = validatePassword(password);
+
+    if (!emailErrorMessage) {
+        //select the email form field message element
+        const emailErrorMessageElement = document.querySelector('.email . dkh-form-field__message');
+        //show email error message to user
+        emailErrorMessageElement.innerText = emailErrorMessageElement;
+    }
+
+    if (passwordErrorMessage) {
+        //select the email form field message element
+        const passwordErrorMessageElement = document.querySelector('.password .dkh-form-field__messages');
+    }
+}
